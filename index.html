@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Incoment and Expenses</title>
+    <title>Incoments and Expenses</title>
     <link rel="stylesheet" type="text/css" href="Css/style.css">
 </head>
 <body>
@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-box-button">
                     <div class="form-button">
-                        <button id="btn_income">Income</button>
+                        <button id="btn_income">Incomes</button>
                     </div>
                     <div class="form-button">
                         <button id="btn_expenses">Expenses</button>
@@ -43,25 +43,44 @@
                                 <thead>
                                 <tr>
                                     <th>id</th>
-                                    <th>Name</th>
-                                    <th>amount</th>
+                                    <th>Nama transaksi</th>
+                                    <th>Saldo</th>
                                 </tr>
                                 </thead>
-                                <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Jufrin</td>
-                                    <td>3000000</td>
-                                </tr>
+                                <tbody id="tbody-incomes">
+<!--                                <tr>-->
+<!--                                    <td>1</td>-->
+<!--                                    <td>Jufrin</td>-->
+<!--                                    <td>3000000</td>-->
+<!--                                </tr>-->
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                    <div class="transaksi-item">
-                        <h3>Expenses</h3>
+                    <div class="transaksi-heading">
+                        <div class="transaksi-item">
+                            <h3>Expenses</h3>
+                        </div>
+                        <div class="transanksi-table">
+                            <table border="1" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>Nama transaksi</th>
+                                    <th>Saldo</th>
+                                </tr>
+                                </thead>
+                                <tbody id="tbody-expenses">
+<!--                                <tr>-->
+<!--                                    <td>1</td>-->
+<!--                                    <td>Jufrin</td>-->
+<!--                                    <td>3000000</td>-->
+<!--                                </tr>-->
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
 

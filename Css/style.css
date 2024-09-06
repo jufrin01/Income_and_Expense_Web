@@ -30,6 +30,7 @@ body {
     font-size: 16px;
     background-color: lightgreen;
     padding: 16px;
+    border-radius: 16px;
 }
 
 .form-box{
@@ -55,6 +56,8 @@ body {
 .form-box-item input {
     width: 100%;
     padding: 8px 16px;
+    border-radius: 16px;
+    /*border: wheat;*/
 }
 
 .form-box-button {
@@ -76,6 +79,7 @@ body {
     width: 50%;
     padding: 8px 16px;
     border: none;
+    border-radius: 16px;
 }
 
 #btn_expenses{
@@ -96,32 +100,41 @@ body {
     align-items: center;
 }
 .transaksi-item{
-    width: 50%;
-    padding: 8px;
-    /*border-bottom: 1px solid lightgray;*/
+    width: 100%;
+    padding: 8px 16px;
     text-align: center;
+
 }
 
 #btn_income:hover{
-    background-color: coral;
+    background-color: lightgreen;
 }
 
 #btn_expenses:hover{
-    background-color: saddlebrown;
+    background-color: red;
 }
 
 .transaksi-heading  {
     margin-bottom: 16px;
+    /*background-color: lightgray;*/
+    padding: 8px ;
+    text-align: center;
+    /*border-bottom: 1px solid gray;*/
+    /*border-top: 1px solid gray;*/
+    /*border-radius: 8px;*/
+
 }
 
 .transanksi-table{
     width: 100%;
+    background-color: white;
 }
 
 .transanksi-table table{
     width: 100%;
+    border-collapse: collapse;
 }
 
-th , td{
+th,td{
     padding: 8px 16px;
 }
