@@ -3,8 +3,8 @@ let BtnIncome = document.getElementById('btn_income');
 let BtnExpense = document.getElementById('btn_expenses');
 
 //tbodies tables
-let tBodyIncomes = document.getElementById('tbody-incomes');
-let tBodyExpenses = document.getElementById('tbody-expenses');
+// let tBodyIncomes = document.getElementById('tbody-incomes');
+// let tBodyExpenses = document.getElementById('tbody-expenses');
 
 //add event listeners
 
@@ -16,13 +16,12 @@ BtnExpense.addEventListener('click', addExpenseHandler);
 let transactions = {
     incomes: [],
     expenses: []
-
 }
 
 //Functions
 function addIncomeHandler(){
-    let incomeValue = document.getElementById('input-nama');
-    let expenseValue = document.getElementById('input-saldo');
+    let inputnama = document.getElementById('input-nama').value;
+    let inputsaldo = document.getElementById('input-saldo').value;
     let id;
     if(transactions.incomes.length === 0){
         id = 1;  //jika array kosong, id awal adalah 1  sebagai id baru  disetiap kali button add income di tekanu pertama kali
@@ -31,29 +30,55 @@ function addIncomeHandler(){
     }
     let tempObjk = {
         id ,
-        transakai : incomeValue.value,
-        saldo  : +expenseValue.value
+        transaksiInc : inputnama,
+        saldoInc  : inputsaldo
     }
     transactions.incomes.push(tempObjk);
-    console.log('add income');
-    console.log(transactions);
+    getFunctions();
+    alert(`${inputnama}`+ " berhasil ditambahkan sebagai income");
 }
 
 function addExpenseHandler(){
-    let incomeValue = document.getElementById('input-nama');
-    let expenseValue = document.getElementById('input-saldo');
+    let inputnama = document.getElementById('input-nama').value;
+    let inputsaldo = document.getElementById('input-saldo').value;
     let id;
     if(transactions.expenses.length === 0){
         id = 1;  //jika array kosong, id awal adalah 1  sebagai id baru  disetiap kali button add income di tekanu pertama kali
     }else{
-        id = transactions.incomes[transactions.incomes.length - 1].id + 1;  //mengambil id terakhir + 1 sebagai id baru
+        id = transactions.expenses[transactions.expenses.length - 1].id + 1;  //mengambil id terakhir + 1 sebagai id baru
     }
     let tempObjk = {
         id ,
-        transakai : incomeValue.value,
-        saldo  : +expenseValue.value
+        transaksiExp: inputnama,
+        saldoExp  : inputsaldo
     }
+     //update table incomes and expenses after adding new transaction
     transactions.expenses.push(tempObjk);
-    console.log(transactions);
-    console.log('add expense');
+    getFunctions();
+    alert(`${inputnama}`+ " berhasil ditambahkan sebagai expense");
 }
+
+function getFunctions(){
+    let tBodyIncomes = document.getElementById('tbody-incomes');
+    let tBodyExpenses = document.getElementById('tbody-expenses');
+
+    tBodyIncomes.innerHTML = '';
+    tBodyExpenses.innerHTML = '';
+
+    transactions.incomes.forEach(inc => {
+        tBodyIncomes.innerHTML += `<tr>
+        <td>${inc.id}</td>
+        <td>${inc.transaksiInc}</td>
+        <td>${inc.saldoInc}</td>
+        </tr>`
+    })
+    transactions.expenses.forEach(exp => {
+        tBodyExpenses.innerHTML += `<tr>
+        <td>${exp.id}</td>
+        <td>${exp.transaksiExp}</td>
+        <td>${exp.saldoExp}</td>
+        </tr>`
+    })
+}
+
+getFunctions();
