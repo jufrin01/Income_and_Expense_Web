@@ -7,6 +7,7 @@
 body {
     font-family: Cambria,Georgia, Coc,
     "Times New Roman", sans-serif;
+    background-color: lightyellow;
 }
 
 .container {
@@ -135,6 +136,20 @@ body {
     border-collapse: collapse;
 }
 
+.saldo-box{
+    width:  100%;
+    text-align: center;
+}
+
+.saldo-box span{
+    font-size: 40px;
+    color: darkgreen;
+}
+
 th,td{
     padding: 8px 16px;
+}
+
+.saldo-text{
+    color: red;
 }

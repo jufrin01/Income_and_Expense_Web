@@ -20,8 +20,11 @@ let transactions = {
 
 //Functions
 function addIncomeHandler(){
+
     let inputnama = document.getElementById('input-nama').value;
     let inputsaldo = document.getElementById('input-saldo').value;
+
+
     let id;
     if(transactions.incomes.length === 0){
         id = 1;  //jika array kosong, id awal adalah 1  sebagai id baru  disetiap kali button add income di tekanu pertama kali
@@ -35,12 +38,18 @@ function addIncomeHandler(){
     }
     transactions.incomes.push(tempObjk);
     getFunctions();
+    saldoCount();
+
+    // inputnama.value = '';
+    // inputsaldo.value = '';
+
     alert(`${inputnama}`+ " berhasil ditambahkan sebagai income");
 }
 
 function addExpenseHandler(){
     let inputnama = document.getElementById('input-nama').value;
     let inputsaldo = document.getElementById('input-saldo').value;
+
     let id;
     if(transactions.expenses.length === 0){
         id = 1;  //jika array kosong, id awal adalah 1  sebagai id baru  disetiap kali button add income di tekanu pertama kali
@@ -52,9 +61,14 @@ function addExpenseHandler(){
         transaksiExp: inputnama,
         saldoExp  : inputsaldo
     }
-     //update table incomes and expenses after adding new transaction
+
     transactions.expenses.push(tempObjk);
     getFunctions();
+    saldoCount();
+
+    // inputnama.value = '';
+    // inputsaldo.value = '';
+
     alert(`${inputnama}`+ " berhasil ditambahkan sebagai expense");
 }
 
@@ -81,4 +95,23 @@ function getFunctions(){
     })
 }
 
+function saldoCount(){
+    let saldoIncome = 0;
+    let saldoExpense = 0;
+
+    transactions.incomes.forEach(inc => {
+        saldoIncome += +inc.saldoInc;
+    })
+    transactions.expenses.forEach(exp => {
+        saldoExpense += +exp.saldoExp;
+    })
+
+    let saldoTotal = saldoIncome - saldoExpense;
+    let saldoElement = document.getElementById('saldo-value');
+
+    saldoElement.innerHTML = saldoTotal;  //menampilkan saldo total ke element id saldo-value di html  secara real-time  setiap ada perubahan data di array transactions.incomes dan transactions.expenses  (seperti addIncomeHandler dan addExpenseHandler)  karena saldoCount dipanggil di function ini  setiap kali saldo total diubah  sehingga saldo total di
+
+}
+
 getFunctions();
+saldoCount();
